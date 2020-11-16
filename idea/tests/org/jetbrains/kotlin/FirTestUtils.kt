@@ -14,6 +14,7 @@ fun <R> executeOnPooledThreadInReadAction(action: () -> R): R? {
         try {
             runReadAction(action)
         } catch (e: Exception) {
+            throw e
             exception = e
             null
         }
